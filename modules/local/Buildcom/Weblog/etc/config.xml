@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<modules>
+		<Buildcom_Weblog>
+			<version>0.1.0</version>
+		</Buildcom_Weblog>
+	</modules>
+	<frontend>
+		<routers>
+			<weblog>
+				<use>standard</use>
+				<args>
+					<module>Buildcom_Weblog</module>
+					<frontName>weblog</frontName>
+				</args>
+			</weblog>
+		</routers>
+	</frontend>
+</config>

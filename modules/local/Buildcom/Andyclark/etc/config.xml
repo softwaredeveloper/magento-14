@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Buildcom_Andyclark>
+            <version>0.1.0</version>
+        </Buildcom_Andyclark>
+    </modules>
+    <global>
+	    <events>
+	    	<controller_front_init_routers>
+	    		<observers>
+	    			<Buildcom_andyclark_model_observer>
+	    				<type>singleton</type>
+	    				<class>Buildcom_Andyclark_Model_Observer</class>
+	    				<method>checkForConfigRequest</method>
+	    			</Buildcom_andyclark_model_observer>
+	    		</observers>
+	    	</controller_front_init_routers>
+	    </events>
+	</global>
+    <frontend>
+        <routers>
+            <hellome>
+                <use>standard</use>
+                <args>
+                    <module>Buildcom_Andyclark</module>
+                    <frontName>hellome</frontName>
+                </args>
+            </hellome>
+        </routers>
+    </frontend>
+</config>

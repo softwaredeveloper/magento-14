@@ -1,0 +1,41 @@
+#!/bin/bash
+
+BASE_PATH=/var/www/magento
+HOST=localhost
+HOST_ALIAS=magento.localhost
+MYSQL="mysql"
+MYSQL_ADMIN_USER=root
+MYSQL_ADMIN_PASS=
+MYSQL_USER=mage
+MYSQL_PASS=foobar
+MYSQL_DB=magento
+MYSQL_HOST=localhost
+TIMEZONE=America/Los_Angeles
+CURRENCY=USD
+USE_REWRITES=yes
+USE_SECURE=yes
+USE_SECURE_ADMIN=yes
+LOCALE=en_US
+
+ADMIN_FIRSTNAME=Store
+ADMIN_LASTNAME=Owner
+ADMIN_EMAIL=foo@example.com
+ADMIN_USER=admin
+ADMIN_PASS=fooBAR123
+# Admin password min length is 7
+
+ENCRYPTION_KEY=duhEncKey
+SESSION_SAVE=db
+ADMIN_FRONTNAME=backend
+
+PHP=/usr/local/bin/php
+MAGE_VERSION=1.7.0.2
+MAGE_DATA_VERSION=1.6.1.0
+MAGE_SAMPLE_DATA=Y
+ERROR_REPORTING=Y
+PATCHES_PATH=${BASE_PATH}/patches
+
+MYSQL="${MYSQL} -u${MYSQL_ADMIN_USER}"
+if [ ! -z $MYSQL_ADMIN_PASS ]; then
+    MYSQL="${MYSQL_CMD} -p${MYSQL_ADMIN_PASS}"
+fi

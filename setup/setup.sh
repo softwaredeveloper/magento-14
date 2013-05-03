@@ -149,6 +149,7 @@ case "$1" in
             Mage_DB_Setup
             Mage_DB_User_Setup
             Mage_Install
+            Mage_Link_Modules
             ;;
         extract)
             Mage_Extract

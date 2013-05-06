@@ -1,0 +1,8 @@
+62a63,69
+> 
+>         // Fix for MySQL 5.6.1+
+>         if (!isset($variables['have_innodb'])) {
+>              $engines = $this->_getConnection()->fetchPairs('SHOW ENGINES');
+>              return (isset($engines['InnoDB']) && ($engines['InnoDB'] == 'DEFAULT' || $engines['InnoDB'] == 'YES'));
+>         }
+> 

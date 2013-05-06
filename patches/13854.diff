@@ -1,0 +1,5 @@
+398c398,399
+<             if (in_array($startSql, $this->_ddlRoutines)) {
+---
+>             // @see http://www.magentocommerce.com/bug-tracking/issue?issue=13854
+>             if (FALSE && in_array($startSql, $this->_ddlRoutines)) {

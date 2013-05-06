@@ -59,4 +59,61 @@ class Buildcom_Andyclark_IndexController extends Mage_Core_Controller_Front_Acti
 		}
 		echo '</dl>';
 	}
+
+	public function varienTestAction() {
+		$thing_1 = new Varien_Object();
+		$thing_1->setName('Richard')
+			->setAge(24);
+		$thing_2 = new Varien_Object();
+		$thing_2->setName('Jane')
+			->setAge(22);
+		$thing_3 = new Varien_Object();
+		$thing_3->setName('Spot')
+			->setLastName('The Dog')
+			->setAge(7);
+
+		$collection_of_things = new Varien_Data_Collection();
+		$collection_of_things
+			->addItem($thing_1)
+			->addItem($thing_2)
+			->addItem($thing_3);
+
+		foreach ( $collection_of_things as $thing ) {
+			var_dump($thing->getData());
+		}
+		
+		echo 'First Thing:' . $collection_of_things->getFirstItem()->getName() . '<br />' . PHP_EOL;
+		echo 'Last Thing:' . $collection_of_things->getLastItem()->getName() . '<br />' . PHP_EOL;
+
+		$age_7_items = $collection_of_things->getItemsByColumnValue('age', 7);
+		echo 'First Age 7 Thing:' . $age_7_items[0]->getName() . '<br />' . PHP_EOL;
+		
+		echo 'Collection XML' . htmlentities($collection_of_things->toXml()) . '<br />' . PHP_EOL;
+	}
+	
+	public function testAction() {
+		$collection_of_products = Mage::getModel('catalog/product')
+			->getCollection()
+			//->addFieldToFilter('sku', array('eq' =>'n2610'))
+			->addFieldToFilter('sku', array('in' => array('n2610', 'ABC123')))
+			->addFieldToFilter('model', array('notnull' => TRUE))
+			->addFieldToFilter('price', array('from' => 100, 'to' => 200))
+			->addAttributeToSelect('*');
+		//var_dump($collection_of_products->getFirstItem()->getData());
+		echo (string)$collection_of_products->getSelect() . '<br />' . PHP_EOL;;
+		echo 'Our collection now has ' . count($collection_of_products) . ' item(s)' . '<br />' . PHP_EOL;;
+		var_dump($collection_of_products->getFirstItem()->getData());
+	}
+
+	public function test2Action() {
+		$filter_a = array('like' => 'a%');
+		$filter_b = array('like' => 'b%');
+		$collection_of_products = Mage::getModel('catalog/product')
+		->getCollection()
+		->addFieldToFilter('sku', array($filter_a, $filter_b))
+		->addAttributeToSelect('*');
+		echo (string)$collection_of_products->getSelect() . '<br />' . PHP_EOL;;
+		echo 'Our collection now has ' . count($collection_of_products) . ' item(s)' . '<br />' . PHP_EOL;;
+		var_dump($collection_of_products->getFirstItem()->getData());
+	}
 }

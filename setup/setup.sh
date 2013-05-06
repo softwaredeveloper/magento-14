@@ -1,8 +1,7 @@
 #!/bin/sh
 
-# TODO detect BASE_PATH
-BASE_PATH=/var/www/magento
-. ${BASE_PATH}/setup/config.sh
+SETUP_PATH=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+. ${SETUP_PATH}/config.sh
 
 Mage_Extract() {
     current_path=`pwd`

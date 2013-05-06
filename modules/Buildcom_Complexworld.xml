@@ -2,7 +2,7 @@
 <config>
 	<modules>
 		<Buildcom_Complexworld>
-			<active>true</active>
+			<active>false</active>
 			<codePool>local</codePool>
 		</Buildcom_Complexworld>
 	</modules>

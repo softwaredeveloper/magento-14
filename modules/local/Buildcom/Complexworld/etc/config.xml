@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<modules>
+		<Buildcom_Complexworld>
+			<version>0.1.0</version>
+		</Buildcom_Complexworld>
+	</modules>
+	<frontend>
+		<routers>
+			<complexworld>
+				<use>standard</use>
+				<args>
+					<module>Buildcom_Complexworld</module>
+					<frontName>complexworld</frontName>
+				</args>
+			</complexworld>
+		</routers>
+	</frontend>
+	<global>
+		<models>
+			<complexworld>
+				<class>Buildcom_Complexworld_Model</class>
+				<resourceModel>complexworld_resource</resourceModel>
+			</complexworld>
+			<complexworld_resource>
+				<class>Buildcom_Complexworld_Model_Resource</class>
+				<entities>
+					<eavblogpost>
+						<table>eavblog_posts</table>
+					</eavblogpost>
+				</entities>
+			</complexworld_resource>
+		</models>
+		<resources>
+			<complexworld_setup>
+				<setup>
+					<module>Buildcom_Complexworld</module>
+					<class>Buildcom_Complexworld_Model_Resource_Setup</class>
+				</setup>
+			</complexworld_setup>
+		</resources>
+	</global>
+</config>

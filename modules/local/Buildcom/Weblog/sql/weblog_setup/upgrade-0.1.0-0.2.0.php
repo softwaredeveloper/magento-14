@@ -7,7 +7,7 @@ $installer->getConnection()
 		'type' => Varien_Db_Ddl_Table::TYPE_TEXT,
 		'nullable' => FALSE,
 		'comment' => 'Blogpost Body',		
-	))
+	));
 
 $installer->endSetup();
 die('foo');

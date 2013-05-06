@@ -31,5 +31,13 @@
 				</entities>
 			</weblog_resource>
 		</models>
+		<resources>
+			<weblog_setup>
+				<setup>
+					<module>Buildcom_Weblog</module>
+					<class>Buildcom_Weblog_Model_Resource_Setup</class>
+				</setup>
+			</weblog_setup>
+		</resources>
 	</global>
 </config>

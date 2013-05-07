@@ -180,5 +180,5 @@ case "$1" in
             echo "  modules = Link modules"
             echo "  install = Install using defaults"
             echo "  permissions = Set safe permissions"
-            echo "  clean = Clean out database and app/etc/local.xml"
+            echo "  clean = Erase database and magento-1.x.x"
 esac

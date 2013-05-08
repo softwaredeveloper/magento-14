@@ -29,11 +29,16 @@ Mage_Extract() {
     fi
 
     # Innodb detection patch for MySQL 5.6.1+ @see http://www.magentocommerce.com/boards/viewthread/33904/P15/
-    # TODO Use a patch rather than copying the file
     patch ${BASE_PATH}/magento/app/code/core/Mage/Install/Model/Installer/Db/Mysql4.php ${BASE_PATH}/patches/mysql_5.6.1_innodb.diff
 
     # @see http://www.magentocommerce.com/bug-tracking/issue?issue=13854
-    patch ${BASE_PATH}/magento/lib/Varien/Db/Adapter/Pdo/Mysql.php ${BASE_PATH}/patches/13854.diff
+    patch ${BASE_PATH}/magento/lib/Varien/Db/Adapter/Pdo/Mysql.php ${BASE_PATH}/patches/issue_13854.diff
+
+    # Install using PHP 5.4+
+    if [ ${PHP_MINOR_VERSION} -gt 3 ]; then
+        patch ${BASE_PATH}/magento/app/code/core/Mage/Install/etc/config.xml ${BASE_PATH}/patches/php54_config.diff
+    fi
+
 
     # Enable error reporting
     if [ ${ERROR_REPORTING} = Y ]; then

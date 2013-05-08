@@ -34,6 +34,9 @@ MAGE_DATA_VERSION=1.6.1.0
 MAGE_SAMPLE_DATA=Y
 ERROR_REPORTING=Y
 PATCHES_PATH=${BASE_PATH}/patches
+PHP_VERSION=`echo "<?php echo phpversion();" | ${PHP}`
+PHP_MAJOR_VERSION=`echo ${PHP_VERSION} | awk -F. '{print $1}'`
+PHP_MINOR_VERSION=`echo ${PHP_VERSION} | awk -F. '{print $2}'`
 
 MYSQL="${MYSQL} -u${MYSQL_ADMIN_USER}"
 if [ ! -z $MYSQL_ADMIN_PASS ]; then

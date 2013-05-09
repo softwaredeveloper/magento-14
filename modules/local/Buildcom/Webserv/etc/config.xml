@@ -19,13 +19,11 @@
 					</product>
 				</entities>
 			</webserv_resource>
-			<!--
 			<catalog>
 				<rewrite>
-					<product>Buildcom_Webserv_Model_Product</product>
+					<!-- <product>Buildcom_Webserv_Model_Product</product> -->
 				</rewrite>
 			</catalog>
-			-->
 		</models>
 		<helpers>
 			<webserv>

@@ -35,6 +35,9 @@ abstract class Buildcom_Webserv_Model_Resource_Webserv_Abstract
 		$this->_service = $service;
 		$this->_services_uri = self::DEV_URI;
 	}
+public function getIdFieldName() {
+	return 'entity_id';
+}
 
 	/**
 	 * Perform actions after object load

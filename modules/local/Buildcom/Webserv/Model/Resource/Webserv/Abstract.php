@@ -1,6 +1,6 @@
 <?php
 /**
- * 
+ *
  * @see Mage_Catalog_Model_Resource_Abstract
  * @see Mage_Core_Model_Resource_Abstract
  *
@@ -38,6 +38,15 @@ abstract class Buildcom_Webserv_Model_Resource_Webserv_Abstract
 public function getIdFieldName() {
 	return 'entity_id';
 }
+public function loadAllAttributes() {
+	return $this;
+}
+public function getSortedAttributes() {
+	return $this;
+}
+public function getWebsiteIds() {
+	return array(1);
+}
 
 	/**
 	 * Perform actions after object load
@@ -62,7 +71,7 @@ public function getIdFieldName() {
 
 		$this->unserializeFields($object);
 		$this->_afterLoad($object);
-	
+
 		return $this;
 	}
 
@@ -98,7 +107,7 @@ public function getIdFieldName() {
 	{
 		return Varien_Date::formatDate($date, $includeTime);
 	}
-	
+
 	/**
 	 * Convert internal date to UNIX timestamp
 	 *

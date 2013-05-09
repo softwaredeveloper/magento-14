@@ -30,6 +30,24 @@
 				<class>Buildcom_Webserv_Helper</class>
 			</webserv>
 		</helpers>
+		<events>
+            <webserv_product_load_after><!--  TODO -->
+                <observers>
+                    <webserv>
+                        <class>webserv/observer</class>
+                        <method>addInventoryData</method>
+                    </webserv>
+                </observers>
+            </webserv_product_load_after>
+            <!-- <catalog_product_load_after>
+                <observers>
+                    <inventory>
+                        <class>cataloginventory/observer</class>
+                        <method>addInventoryData</method>
+                    </inventory>
+                </observers>
+            </catalog_product_load_after> -->
+		</events>
 	</global>
     <frontend>
         <routers>

@@ -14,7 +14,7 @@ class Buildcom_Webserv_IndexController extends Mage_Core_Controller_Front_Action
 	 */
 	public function catalogproductAction() {
 		$model = Mage::getModel('catalog/product');
-		$product = $model->load(167);
+		$product = $model->load(self::MAGE_ENTITY_ID);
 		$this->_vardumpAsTable($product->getData());
 	}
 
@@ -38,7 +38,7 @@ class Buildcom_Webserv_IndexController extends Mage_Core_Controller_Front_Action
 		$model = Mage::getModel('webserv/product');
 		$entries = $model->getCollection()
 		->addAttributeToFilter(array(
-				array('attribute' => 'product_id', '=' => 167),
+				array('attribute' => 'product_id', '=' => self::MAGE_ENTITY_ID),
 				array('attribute' => 'title', 'like' => 'Dummy'),
 		))
 		->addAttributeToSelect('product_id')
@@ -60,7 +60,7 @@ class Buildcom_Webserv_IndexController extends Mage_Core_Controller_Front_Action
 		if ( ! is_array($data) ) {
 			return FALSE;
 		}
-
+//var_dump($data['stock_item']);
 		echo '<table border="1">' . PHP_EOL;
 		echo '	<tr>' . PHP_EOL;
 		echo '		<th>Key</th>' . PHP_EOL;

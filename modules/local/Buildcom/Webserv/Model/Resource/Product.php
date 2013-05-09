@@ -79,9 +79,6 @@ class Buildcom_Webserv_Model_Resource_Product extends Buildcom_Webserv_Model_Res
 				'tier_price' => array(),
 				'tier_price_changed' => array('fixed' => 0),
 				'media_gallery' => array(),
-				'stock_item' => array(),
-				'is_in_stock' => array('fixed' => '1'),
-				'is_salable' => array('fixed' => '1'),
 		);
 
 		$manufacturer_url_key = rawurlencode(str_replace(' ', '-', strtolower($data->manufacturer)));
@@ -178,21 +175,6 @@ class Buildcom_Webserv_Model_Resource_Product extends Buildcom_Webserv_Model_Res
 						),
 						'values' => array(),
 					);
-					break;
-
-				case 'stock_item':
-					// TODO Fake stock values
-					$stock = Mage::getModel('cataloginventory/stock');
-					$value = $stock
-					//->setItemId(500)
-					->setProductId($result['entity_id'])
-					->setStockId(1)
-					->setQty(500)
-					->setMinQty(1)
-					->setUseConfigMinQty(0)
-					->setIsQtyDecimal(0)
-					->setBackorders(0)
-					->setUseConfigBackorders(0);
 					break;
 
 				default:

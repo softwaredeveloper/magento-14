@@ -9,6 +9,17 @@ class Buildcom_Webserv_IndexController extends Mage_Core_Controller_Front_Action
 		$this->_vardumpAsTable($product->getData());
 	}
 
+	public function coltestAction() {
+		//$foo = Mage::getSingleton('catalog/product_url');
+		//var_dump($foo);
+		echo 'Collection Test' . '<br />' . PHP_EOL;
+		$products = Mage::getModel('webserv/product')->getCollection();
+		var_dump($products);
+		foreach ( $products as $product ) {
+			echo $product->getSku() . '<br />' . PHP_EOL;
+		}
+	}
+
 	/**
 	 * Show a catalog/product
 	 */

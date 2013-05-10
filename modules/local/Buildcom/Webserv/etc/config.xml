@@ -13,11 +13,6 @@
 			</webserv>
 			<webserv_resource>
 				<class>Buildcom_Webserv_Model_Resource</class>
-				<entities>
-					<product>
-						<table>webserv_product</table>
-					</product>
-				</entities>
 			</webserv_resource>
 			<catalog>
 				<rewrite>

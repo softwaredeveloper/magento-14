@@ -18,7 +18,7 @@ class Buildcom_Andyclark_IndexController extends Mage_Core_Controller_Front_Acti
 			$model->save();
 		}
 
-		if ( TRUE ) {
+		if ( FALSE ) {
 			$products_collection = Mage::getModel('catalog/product')
 				->getCollection()
 				->addAttributeToSelect('*')
@@ -35,7 +35,7 @@ class Buildcom_Andyclark_IndexController extends Mage_Core_Controller_Front_Acti
 			print_r($translated_output);
 			echo PHP_EOL;
 		}
-		
+
 		echo '</pre>' . PHP_EOL;
 		echo ob_get_clean();
 		/*
@@ -50,7 +50,7 @@ class Buildcom_Andyclark_IndexController extends Mage_Core_Controller_Front_Acti
 		$this->loadLayout();
 		$this->renderLayout();
 	}
-	
+
 	public function paramsAction() {
 		echo '<dl>';
 		foreach($this->getRequest()->getParams() as $key=>$value) {
@@ -81,16 +81,16 @@ class Buildcom_Andyclark_IndexController extends Mage_Core_Controller_Front_Acti
 		foreach ( $collection_of_things as $thing ) {
 			var_dump($thing->getData());
 		}
-		
+
 		echo 'First Thing:' . $collection_of_things->getFirstItem()->getName() . '<br />' . PHP_EOL;
 		echo 'Last Thing:' . $collection_of_things->getLastItem()->getName() . '<br />' . PHP_EOL;
 
 		$age_7_items = $collection_of_things->getItemsByColumnValue('age', 7);
 		echo 'First Age 7 Thing:' . $age_7_items[0]->getName() . '<br />' . PHP_EOL;
-		
+
 		echo 'Collection XML' . htmlentities($collection_of_things->toXml()) . '<br />' . PHP_EOL;
 	}
-	
+
 	public function testAction() {
 		$collection_of_products = Mage::getModel('catalog/product')
 			->getCollection()

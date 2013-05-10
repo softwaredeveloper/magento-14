@@ -12,7 +12,7 @@ class Buildcom_Weblog_IndexController extends Mage_Core_Controller_Front_Action 
 	    $data = $blogpost->getData();
 	    var_dump($data);
 	}
-	
+
 	public function createpostAction() {
 		$blogpost = Mage::getModel('weblog/blogpost');
 		$blogpost->setTitle('Code Post!')
@@ -20,7 +20,7 @@ class Buildcom_Weblog_IndexController extends Mage_Core_Controller_Front_Action 
 			->save();
 		echo 'post with ID ' . $blogpost->getId() . ' created';
 	}
-	
+
 	public function editpostAction() {
 		$params = $this->getRequest()->getParams();
 		if ( empty($params['id']) || ( ! is_numeric($params['id']) ) ) {
@@ -33,7 +33,7 @@ class Buildcom_Weblog_IndexController extends Mage_Core_Controller_Front_Action 
 			->save();
 		echo 'post edited';
 	}
-	
+
 	public function deletepostAction() {
 		$params = $this->getRequest()->getParams();
 		if ( empty($params['id']) || ( ! is_numeric($params['id']) ) ) {
@@ -45,9 +45,8 @@ class Buildcom_Weblog_IndexController extends Mage_Core_Controller_Front_Action 
 			->delete();
 		echo 'post ' . $params['id'] . ' removed';
 	}
-	
+
 	public function showallpostsAction() {
-echo 'TEST!!';
 		$posts = Mage::getModel('weblog/blogpost')->getCollection();
 		foreach ( $posts as $blogpost ) {
 			echo '<h3>' . $blogpost->getTitle() . '</h3>' . PHP_EOL;

@@ -47,6 +47,9 @@ public function getSortedAttributes() {
 public function getWebsiteIds() {
 	return array(1);
 }
+protected function getReadConnection() {
+	return FALSE;
+}
 
 	/**
 	 * Perform actions after object load
